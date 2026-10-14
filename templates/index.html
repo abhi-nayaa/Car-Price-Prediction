@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AutoValue | Car Price Prediction</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+    <header class="navbar">
+        <a class="brand" href="/">AutoValue</a>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/predict">Predict Price</a>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <section class="hero-content">
+            <p class="eyebrow">MACHINE LEARNING PROJECT</p>
+
+            <h1>Discover your car's estimated value.</h1>
+
+            <p class="hero-description">
+                Enter your car's specifications and get an estimated price
+                using a machine learning regression model.
+            </p>
+
+            {% if model_ready %}
+                <p class="status status-success">
+                    Prediction model is ready
+                </p>
+
+                <a class="primary-button" href="/predict">
+                    Predict a Car Price
+                </a>
+            {% else %}
+                <p class="status status-error">
+                    Model files are missing. Run train_model.py first.
+                </p>
+            {% endif %}
+        </section>
+
+        <section class="info-card">
+            <div class="car-illustration" aria-hidden="true">🚘</div>
+
+            <p class="eyebrow">YOUR ESTIMATE</p>
+            <h2>Data-driven pricing</h2>
+
+            <p>
+                The model learns patterns from car specifications in the
+                training dataset. Its prediction is an estimate, not a
+                guaranteed market price.
+            </p>
+
+            <div class="model-detail">
+                <span>Selected model</span>
+                <strong>{{ selected_model }}</strong>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>AutoValue · Car Price Prediction Using Machine Learning</p>
+    </footer>
+</body>
+</html>

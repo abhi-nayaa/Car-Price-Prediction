@@ -1,0 +1,161 @@
+{
+  "features": [
+    "symboling",
+    "fueltype",
+    "aspiration",
+    "doornumber",
+    "carbody",
+    "drivewheel",
+    "enginelocation",
+    "wheelbase",
+    "carlength",
+    "carwidth",
+    "carheight",
+    "curbweight",
+    "enginetype",
+    "cylindernumber",
+    "enginesize",
+    "fuelsystem",
+    "boreratio",
+    "stroke",
+    "compressionratio",
+    "horsepower",
+    "peakrpm",
+    "citympg",
+    "highwaympg",
+    "brand"
+  ],
+  "numerical_features": [
+    "symboling",
+    "wheelbase",
+    "carlength",
+    "carwidth",
+    "carheight",
+    "curbweight",
+    "enginesize",
+    "boreratio",
+    "stroke",
+    "compressionratio",
+    "horsepower",
+    "peakrpm",
+    "citympg",
+    "highwaympg"
+  ],
+  "categorical_features": [
+    "fueltype",
+    "aspiration",
+    "doornumber",
+    "carbody",
+    "drivewheel",
+    "enginelocation",
+    "enginetype",
+    "cylindernumber",
+    "fuelsystem",
+    "brand"
+  ],
+  "categories": {
+    "fueltype": [
+      "diesel",
+      "gas"
+    ],
+    "aspiration": [
+      "std",
+      "turbo"
+    ],
+    "doornumber": [
+      "four",
+      "two"
+    ],
+    "carbody": [
+      "convertible",
+      "hardtop",
+      "hatchback",
+      "sedan",
+      "wagon"
+    ],
+    "drivewheel": [
+      "4wd",
+      "fwd",
+      "rwd"
+    ],
+    "enginelocation": [
+      "front",
+      "rear"
+    ],
+    "enginetype": [
+      "dohc",
+      "dohcv",
+      "l",
+      "ohc",
+      "ohcf",
+      "ohcv",
+      "rotor"
+    ],
+    "cylindernumber": [
+      "eight",
+      "five",
+      "four",
+      "six",
+      "three",
+      "twelve",
+      "two"
+    ],
+    "fuelsystem": [
+      "1bbl",
+      "2bbl",
+      "4bbl",
+      "idi",
+      "mfi",
+      "mpfi",
+      "spdi",
+      "spfi"
+    ],
+    "brand": [
+      "alfa-romero",
+      "audi",
+      "bmw",
+      "buick",
+      "chevrolet",
+      "dodge",
+      "honda",
+      "isuzu",
+      "jaguar",
+      "maxda",
+      "mazda",
+      "mercury",
+      "mitsubishi",
+      "nissan",
+      "peugeot",
+      "plymouth",
+      "porcshce",
+      "porsche",
+      "renault",
+      "saab",
+      "subaru",
+      "toyota",
+      "toyouta",
+      "vokswagen",
+      "volkswagen",
+      "volvo",
+      "vw"
+    ]
+  },
+  "numeric_defaults": {
+    "symboling": 1.0,
+    "wheelbase": 97.0,
+    "carlength": 173.2,
+    "carwidth": 65.5,
+    "carheight": 54.1,
+    "curbweight": 2414.0,
+    "enginesize": 120.0,
+    "boreratio": 3.31,
+    "stroke": 3.29,
+    "compressionratio": 9.0,
+    "horsepower": 95.0,
+    "peakrpm": 5200.0,
+    "citympg": 24.0,
+    "highwaympg": 30.0
+  },
+  "currency": "USD",
+  "selected_model": "Random Forest Regressor"
+}

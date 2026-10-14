@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Predict Price | AutoValue</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}"
+        defer
+    ></script>
+</head>
+
+<body>
+    <header class="navbar">
+        <a class="brand" href="/">AutoValue</a>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/predict">Predict Price</a>
+        </nav>
+    </header>
+
+    <main class="form-container">
+        <section class="page-heading">
+            <p class="eyebrow">PRICE ESTIMATION</p>
+            <h1>Enter your car details</h1>
+            <p>
+                Fill in the specifications below to estimate the car price.
+            </p>
+        </section>
+
+        <form id="prediction-form" class="prediction-form">
+            <div class="form-grid">
+                {% for feature in metadata.features %}
+                    <div class="form-field">
+                        <label for="{{ feature }}">
+                            {{ feature.replace('_', ' ').title() }}
+                        </label>
+
+                        {% if feature in metadata.categorical_features %}
+                            <select
+                                id="{{ feature }}"
+                                name="{{ feature }}"
+                                required
+                            >
+                                <option value="">Select an option</option>
+
+                                {% for option in metadata.categories[feature] %}
+                                    <option value="{{ option }}">
+                                        {{ option.replace('_', ' ').title() }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+
+                        {% else %}
+                            <input
+                                type="number"
+                                id="{{ feature }}"
+                                name="{{ feature }}"
+                                data-type="number"
+                                value="{{ metadata.numeric_defaults[feature] }}"
+                                step="any"
+                                required
+                            >
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" id="predict-button" class="primary-button">
+                    Predict Price
+                </button>
+
+                <button type="reset" class="secondary-button">
+                    Reset Form
+                </button>
+            </div>
+
+            <p id="message" class="message" role="status"></p>
+
+            <section id="result-card" class="result-card" hidden>
+                <p class="eyebrow">ESTIMATED CAR PRICE</p>
+                <h2 id="predicted-price">$0.00</h2>
+                <p id="model-name"></p>
+                <p class="disclaimer">
+                    This is a machine learning estimate, not a guaranteed
+                    selling price.
+                </p>
+            </section>
+        </form>
+    </main>
+
+    <footer>
+        <p>AutoValue · Car Price Prediction Using Machine Learning</p>
+    </footer>
+</body>
+</html>
